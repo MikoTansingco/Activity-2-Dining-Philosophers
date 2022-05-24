@@ -9,15 +9,16 @@ public class Activity2 {
         DiningPhilosophers dp = new DiningPhilosophers(count);
         Philosopher[] philos = new Philosopher[count];
 
-        for(int i = 0; i < count; i++){
-            philos[i] = new Philosopher(i, this.dp);
+        for(int i = 0; i < count; i++) {
+            philos[i] = new Philosopher(i, dp);
         }
 
-        for(int i = 0; i < count; i++){
+        for(int i = 0; i < count; i++) {
             new Thread(philos[i]).start();
         }
 
     }
+
 }
 
 enum State {
@@ -52,7 +53,6 @@ class Philosopher implements Runnable {
                 Thread.currentThread().interrupt();
                 return;
             }
-
         }
 
     }
